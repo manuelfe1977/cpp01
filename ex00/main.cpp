@@ -1,18 +1,14 @@
 #include "Zombie.hpp"
 
-
 int main(void)
 {
-    Zombie *zombie;
-    Zombie stackZombie("stackZombie");
+    std::cout << "--- Creating a Zombie heap ---" << std::endl;
+    Zombie *heapZombie = newZombie("HeapZombie");
+    heapZombie->announce();
+    delete heapZombie;
 
-    zombie = new Zombie("zombie");
-    zombie->announce();
-    delete zombie;
-    Zombie *zmb = stackZombie.newZombie("zmb");
-    zmb->announce();
-    delete zmb;
-    stackZombie.randomChump("stackZombie2");
+    std::cout << std::endl << "--- Creating a Zombie stack ---" << std::endl;
+    randomChump("StackZombie");
 
     return (0);
 }
